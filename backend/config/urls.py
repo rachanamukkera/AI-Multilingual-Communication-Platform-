@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,4 +27,31 @@ urlpatterns = [
 
     # Translation APIs
     path("api/translation/", include("translation.urls")),
+
+    #speech APIs
+    path("api/speech/", include("speech.urls")),
+
+    #tts 
+    path("api/tts/", include("tts.urls")),
+
+    #ocr path
+    path("api/ocr/", include("ocr.urls")),
+
+    #language detection
+    path("api/language-detection/",include("language_detection.urls")),
+
+    #ai_chat
+    path("api/ai-chat/", include("ai_chat.urls")),
+
+    #smart replies
+    path("api/smart-replies/",include("smart_replies.urls")),
+
+    #summarization
+    path("api/summarization/",include("summarization.urls")),
+
+    #grammar_correction
+    path("api/grammar-correction/",include("grammar_correction.urls")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

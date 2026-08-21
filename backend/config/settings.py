@@ -48,13 +48,15 @@ INSTALLED_APPS = [
 
     # Project Apps
     'accounts',
-    'chat',
     'translation',
     'speech',
     'ocr',
-    'documents',
-    'dashboard',
-    'notifications',
+    'language_detection',
+    'ai_chat',
+    'smart_replies',
+    'summarization',
+    'grammar_correction',
+    'tts',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +157,6 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

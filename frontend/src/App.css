@@ -1,0 +1,537 @@
+/* ============================= */
+/* ROOT */
+/* ============================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* ============================= */
+/* BODY */
+/* ============================= */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+
+/* ============================= */
+/* APP */
+/* ============================= */
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.header {
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1e1b4b
+  );
+
+  color: white;
+  padding: 30px 50px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.header-content {
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+}
+
+.header h1 {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+.header p {
+  margin: 10px 0 0;
+
+  color: #a5b4fc;
+
+  font-size: 15px;
+}
+
+
+/* ============================= */
+/* LOGOUT */
+/* ============================= */
+
+.logout-button {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: white;
+
+  padding: 11px 20px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  box-shadow: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logout-button:hover {
+  background: rgba(239, 68, 68, 0.18);
+
+  border-color: rgba(248, 113, 113, 0.5);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================= */
+/* DASHBOARD */
+/* ============================= */
+
+.dashboard {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 40px 24px 60px;
+}
+
+
+/* ============================= */
+/* PROFILE */
+/* ============================= */
+
+.profile-card {
+  margin-bottom: 25px;
+}
+
+
+/* ============================= */
+/* FEATURE GRID */
+/* ============================= */
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+
+/* ============================= */
+/* FEATURE CARDS */
+/* ============================= */
+
+.feature-card {
+  background:
+    rgba(30, 41, 59, 0.85);
+
+  border:
+    1px solid rgba(148, 163, 184, 0.15);
+
+  border-radius: 18px;
+
+  padding: 28px;
+
+  margin-bottom: 0;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(129, 140, 248, 0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ============================= */
+/* LARGE FEATURE */
+/* ============================= */
+
+.large-feature {
+  grid-column: span 2;
+}
+
+
+/* ============================= */
+/* FEATURE CONTENT */
+/* ============================= */
+
+.feature-content {
+  width: 100%;
+}
+
+.feature-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.feature-heading h2 {
+  margin: 0;
+
+  color: #f8fafc;
+}
+
+.feature-heading p {
+  margin: 6px 0 0;
+
+  color: #94a3b8;
+}
+
+.feature-icon {
+  font-size: 28px;
+}
+
+
+/* ============================= */
+/* HEADINGS */
+/* ============================= */
+
+.feature-card h2 {
+  margin-top: 0;
+
+  color: #f8fafc;
+}
+
+.feature-card h3 {
+  color: #e2e8f0;
+}
+
+
+/* ============================= */
+/* INPUT GROUPS */
+/* ============================= */
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+
+  font-weight: 600;
+
+  margin-bottom: 6px;
+
+  color: #cbd5e1;
+}
+
+
+/* ============================= */
+/* LANGUAGE ROW */
+/* ============================= */
+
+.language-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+textarea,
+input,
+select {
+  width: 100%;
+
+  padding: 13px;
+
+  margin: 8px 0 15px;
+
+  border:
+    1px solid #475569;
+
+  border-radius: 10px;
+
+  font-size: 15px;
+
+  font-family: inherit;
+
+  background: #111827;
+
+  color: #f8fafc;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border-color: #818cf8;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(129, 140, 248, 0.15);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #64748b;
+}
+
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+button {
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6366f1,
+      #8b5cf6
+    );
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 6px 18px
+    rgba(99, 102, 241, 0.25);
+}
+
+button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px
+    rgba(99, 102, 241, 0.35);
+}
+
+button:disabled {
+  background: #475569;
+
+  box-shadow: none;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ============================= */
+/* RESULT BOX */
+/* ============================= */
+
+.result-box {
+  margin-top: 20px;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 23, 42, 0.8);
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(129, 140, 248, 0.25);
+}
+
+.result-box h3 {
+  margin-top: 0;
+
+  color: #a5b4fc;
+}
+
+
+/* ============================= */
+/* AUDIO */
+/* ============================= */
+
+.audio-player {
+  width: 100%;
+  margin-top: 8px;
+}
+
+
+/* ============================= */
+/* ERROR */
+/* ============================= */
+
+.error-message {
+  color: #f87171;
+
+  margin-top: 10px;
+}
+
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.footer {
+  text-align: center;
+
+  padding: 30px 10px 10px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .large-feature {
+    grid-column: span 1;
+  }
+
+  .header {
+    padding: 25px 30px;
+  }
+
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+  .header {
+    padding: 25px 20px;
+  }
+
+  .header-content {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header p {
+    font-size: 14px;
+  }
+
+  .logout-button {
+    width: 100%;
+  }
+
+  .dashboard {
+    padding:
+      25px 15px 40px;
+  }
+
+  .feature-grid {
+    gap: 18px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .language-row {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .feature-heading {
+    gap: 9px;
+  }
+
+  .feature-icon {
+    font-size: 24px;
+  }
+
+}
