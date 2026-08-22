@@ -69,6 +69,30 @@ Django REST Backend
         Gemini / AI Services
 ```
 
+## 📸 Screenshots
+
+### Login
+
+![Login](screenshots/login.png)
+
+### AI Chat
+
+![AI Chat](screenshots/ai_chat.png)
+
+### Smart Replies
+
+![Smart Replies](screenshots/smart_replies.png)
+
+### Speech to Text
+
+![Speech to Text](screenshots/speech_to_text.png)
+
+### Text to Speech
+
+![Text to Speech](screenshots/text_to_speech.png)
+
+
+
 ## 🔐 Authentication
 
 The application uses JWT-based authentication.
@@ -149,6 +173,8 @@ AI-Multilingual-Communication-Platform/
 ├── .gitignore
 └── README.md
 ```
+
+
 
 ## ⚙️ Installation and Setup
 
