@@ -2,10 +2,6 @@
 #!/usr/bin/env bash
 set -o errexit
 
-apt-get update
-apt-get install -y tesseract-ocr
-
-pip install -r requirements.txt
-
-
-
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pip show pytesseract
