@@ -1,3 +1,6 @@
+from django.http import FileResponse, Http404
+from pathlib import Path
+from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -6,10 +9,9 @@ from gtts import gTTS
 import os
 import uuid
 
-from django.conf import settings
 
-from django.http import FileResponse, Http404
-from pathlib import Path
+
+
 
 
 class TextToSpeechView(APIView):
