@@ -8,6 +8,9 @@ import uuid
 
 from django.conf import settings
 
+from django.http import FileResponse, Http404
+from pathlib import Path
+
 
 class TextToSpeechView(APIView):
     permission_classes = [IsAuthenticated]
@@ -46,3 +49,19 @@ class TextToSpeechView(APIView):
             "message": "Speech generated successfully",
             "audio_url": audio_url
         })
+
+    def serve_tts_audio(request, filename):
+
+        # Only allow MP3 filenames
+        if Path(filename).name != filename or not filename.endswith(".mp3"):
+            raise Http404("Audio file not found")
+
+        file_path = Path(settings.MEDIA_ROOT) / "tts" / filename
+
+        if not file_path.is_file():
+            raise Http404("Audio file not found")
+
+        return FileResponse(
+            open(file_path, "rb"),
+            content_type="audio/mpeg"
+        )

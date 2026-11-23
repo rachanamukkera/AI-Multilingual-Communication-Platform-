@@ -16,8 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from tts.views import serve_tts_audio
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -33,6 +32,9 @@ urlpatterns = [
 
     #tts 
     path("api/tts/", include("tts.urls")),
+
+
+    path("media/tts/<str:filename>", serve_tts_audio, name="serve-tts-audio"),
 
     #ocr path
     path("api/ocr/", include("ocr.urls")),
@@ -53,4 +55,4 @@ urlpatterns = [
     path("api/grammar-correction/",include("grammar_correction.urls")),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
