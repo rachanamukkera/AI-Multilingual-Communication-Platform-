@@ -10,30 +10,29 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+
+"""
+Django settings for config project.
+"""
+
+import os
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Security settings
 SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default='localhost,127.0.0.1'
+).split(',')
 
 # Application definition
-
 INSTALLED_APPS = [
-    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,12 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Third Party Apps
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
 
-    # Project Apps
     'accounts',
     'translation',
     'speech',
@@ -89,10 +86,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
+# PostgreSQL Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -100,14 +94,12 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'PORT': config('DB_PORT', default='5432'),
+        'CONN_MAX_AGE': 60,
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -123,40 +115,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
+# Static files
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+# CORS
+CORS_ALLOWED_ORIGINS = config(
+    'CORS_ALLOWED_ORIGINS',
+    default='http://localhost:5173'
+).split(',')
 
-
-
+# Django REST Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
 
+# JWT Authentication
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
