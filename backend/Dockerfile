@@ -8,9 +8,13 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 # Install Tesseract OCR
+
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends tesseract-ocr && \
+    apt-get install -y --no-install-recommends \
+    tesseract-ocr \
+    ffmpeg && \
     rm -rf /var/lib/apt/lists/*
+
 
 # Install Python dependencies
 COPY requirements.txt .
