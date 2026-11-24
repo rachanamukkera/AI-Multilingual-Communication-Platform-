@@ -286,6 +286,7 @@ The frontend will then be available at the URL shown by Vite in the terminal.
 
 B.Tech — Electronics and Communication Engineering
 
----
+-----
 
-⭐ This project demonstrates full-stack development using React, Django REST Framework, JWT authentication, AI APIs, and multiple language-processing technologies.
+⭐ This project demonstrates full-stack development using React, Django REST Framework, JWT authentication, AI APIs, and multiple language-processing technologies.   
+ 
